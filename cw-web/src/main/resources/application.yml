@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/cleanwater
+    username: root
+    password: qwer1234
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    user: root
+    password: qwer1234

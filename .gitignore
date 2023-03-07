@@ -1,0 +1,4 @@
+# Project exclude paths
+/.gradle/
+/cw-web/build/
+/cw-web/build/classes/java/main/

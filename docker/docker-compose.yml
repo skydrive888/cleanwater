@@ -1,0 +1,34 @@
+version: '3.2'
+services:
+  ################
+  ## TMS
+  ################
+  cw-dbms:
+    image: cw-dbms:latest
+    container_name: cw-dbms
+    hostname: cw-dbms
+    networks:
+      - cw-internal
+    volumes:
+      - type: volume
+        source: pgdata
+        target: /Users/icent/dbdata
+        volume:
+          nocopy: true
+    restart: always
+    healthcheck:
+      test: "pg_isready -h localhost -p 5432 -q -U postgres"
+      interval: 5s
+      timeout: 1s
+      retries: 10
+    environment:
+      - TZ=Asia/Seoul
+      - PGDATA=/Users/icent/dbdata
+    ports:
+      - "5432:5432"
+
+networks:
+  cw-internal:
+
+volumes:
+  pgdata:
